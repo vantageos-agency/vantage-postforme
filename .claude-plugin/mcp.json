@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "vantage-postforme": {
+      "command": "npx",
+      "args": ["-y", "@vantageos/vantage-postforme"],
+      "env": { "POST_FOR_ME_API_KEY": "${POST_FOR_ME_API_KEY}" }
+    }
+  }
+}

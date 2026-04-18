@@ -1,0 +1,47 @@
+{
+  "name": "@vantageos/vantage-postforme",
+  "version": "0.1.0",
+  "description": "Multi-platform social posting MCP server for VantageOS orchestrators. Wraps the official Post For Me TypeScript SDK with first-class, named MCP tools.",
+  "type": "module",
+  "main": "dist/server.js",
+  "bin": {
+    "vantage-postforme-mcp": "dist/server.js"
+  },
+  "files": [
+    "dist",
+    ".claude-plugin",
+    "skills",
+    "agents",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx src/server.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "post-for-me",
+    "social-media",
+    "claude-code",
+    "vantageos"
+  ],
+  "author": "ElPi Corp",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "post-for-me": "^2.7.0",
+    "zod": "^3.23.0",
+    "zod-to-json-schema": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}

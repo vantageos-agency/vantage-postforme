@@ -1,0 +1,19 @@
+{
+  "name": "vantage-postforme",
+  "version": "0.1.0",
+  "description": "Multi-platform social posting for VantageOS orchestrators. Wraps Post For Me API with first-class MCP tools.",
+  "author": { "name": "ElPi Corp", "url": "https://elpicorp.com" },
+  "license": "MIT",
+  "tools": 7,
+  "platforms": [
+    "tiktok",
+    "facebook",
+    "instagram",
+    "x",
+    "linkedin",
+    "pinterest",
+    "bluesky",
+    "threads",
+    "youtube"
+  ]
+}

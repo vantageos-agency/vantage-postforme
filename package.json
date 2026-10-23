@@ -34,7 +34,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.32.0",
     "post-for-me": "^2.7.0",
     "zod": "^3.23.0",
     "zod-to-json-schema": "^3.23.0"
@@ -43,5 +43,9 @@
     "@types/node": "^20",
     "tsx": "^4.19.0",
     "typescript": "^5.5.0"
+  },
+  "overrides": {
+    "fast-uri": "3.1.7",
+    "proxy-addr": "2.0.8"
   }
 }

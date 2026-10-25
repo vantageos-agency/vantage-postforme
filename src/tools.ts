@@ -1,6 +1,5 @@
 import type { PostForMe } from "post-for-me";
 import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
 
 /**
  * Platforms supported by Post For Me. Mirrors the SDK's platform union, plus
@@ -67,7 +66,7 @@ const PublishPostInput = z.object({
     .optional()
     .describe("ISO 8601 datetime. If omitted, the post publishes immediately."),
   platform_configurations: z
-    .record(z.unknown())
+    .record(z.string(), z.unknown())
     .optional()
     .describe(
       "Per-platform overrides (e.g. { x: { caption: '...' }, linkedin: { title: '...' } }).",
@@ -102,10 +101,11 @@ export interface ToolDefinition {
   inputSchema: Record<string, unknown>;
 }
 
-function toJsonSchema(schema: z.ZodTypeAny): Record<string, unknown> {
-  // zod-to-json-schema returns a JSON Schema-compliant object. The MCP spec
+function toJsonSchema(schema: z.ZodType): Record<string, unknown> {
+  // zod 4's native converter returns a JSON Schema-compliant object. The MCP spec
   // requires `type: object` at the top level, which zod object schemas provide.
-  const result = zodToJsonSchema(schema, { target: "jsonSchema7", $refStrategy: "none" });
+  // Output side (the default) keeps `additionalProperties: false`, as before.
+  const result = z.toJSONSchema(schema, { target: "draft-7" });
   // Strip the top-level $schema key — MCP validators choke on it.
   if (typeof result === "object" && result !== null && "$schema" in result) {
     delete (result as Record<string, unknown>).$schema;
